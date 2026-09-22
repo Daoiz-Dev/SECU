@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Postulaciones {
+public class Postulacion {
     private Integer idPostulacion;
     private String nombreProyecto;
     private String lineaInvestigacion;
@@ -18,13 +18,13 @@ public class Postulaciones {
     private DepartamentoAcademico idDepartamentoAcademico;
     private Postulante idPostulante;
 
-    public Postulaciones(){
+    public Postulacion(){
 
     }
-    public Postulaciones(Integer idPostulacion, String nombreProyecto, String lineaInvestigacion, LocalDate fechaSolicitud,
-                         Integer cantidadMeses, String grupoInvestigacion, String otroGrupoInvestigacion, String observacionesCES,
-                         Integer ordenPreCalculado, Integer puntajeConsolidado, Integer ordenFinalCES, String juicioGlobal,
-                         Sede idSede, Convocatoria idConvocatoria, DepartamentoAcademico idDepartamentoAcademico, Postulante idPostulante) {
+    public Postulacion(Integer idPostulacion, String nombreProyecto, String lineaInvestigacion, LocalDate fechaSolicitud,
+                       Integer cantidadMeses, String grupoInvestigacion, String otroGrupoInvestigacion, String observacionesCES,
+                       Integer ordenPreCalculado, Integer puntajeConsolidado, Integer ordenFinalCES, String juicioGlobal,
+                       Sede idSede, Convocatoria idConvocatoria, DepartamentoAcademico idDepartamentoAcademico, Postulante idPostulante) {
         this.idPostulacion = idPostulacion;
         this.nombreProyecto = nombreProyecto;
         this.lineaInvestigacion = lineaInvestigacion;
