@@ -13,18 +13,20 @@ public class Postulacion {
     private Integer puntajeConsolidado;
     private Integer ordenFinalCES;
     private String juicioGlobal;
-    private Sede idSede;
-    private Convocatoria idConvocatoria;
-    private DepartamentoAcademico idDepartamentoAcademico;
-    private Postulante idPostulante;
+    //private Sede idSede;
+    //private Convocatoria idConvocatoria;
+    //private DepartamentoAcademico idDepartamentoAcademico;
+    //private Postulante idPostulante;
 
     public Postulacion(){
 
     }
     public Postulacion(Integer idPostulacion, String nombreProyecto, String lineaInvestigacion, LocalDate fechaSolicitud,
                        Integer cantidadMeses, String grupoInvestigacion, String otroGrupoInvestigacion, String observacionesCES,
-                       Integer ordenPreCalculado, Integer puntajeConsolidado, Integer ordenFinalCES, String juicioGlobal,
-                       Sede idSede, Convocatoria idConvocatoria, DepartamentoAcademico idDepartamentoAcademico, Postulante idPostulante) {
+                       Integer ordenPreCalculado, Integer puntajeConsolidado, Integer ordenFinalCES, String juicioGlobal) {
+
+                       //, Sede idSede, Convocatoria idConvocatoria, DepartamentoAcademico idDepartamentoAcademico, Postulante idPostulante
+
         this.idPostulacion = idPostulacion;
         this.nombreProyecto = nombreProyecto;
         this.lineaInvestigacion = lineaInvestigacion;
@@ -37,10 +39,11 @@ public class Postulacion {
         this.puntajeConsolidado = puntajeConsolidado;
         this.ordenFinalCES = ordenFinalCES;
         this.juicioGlobal = juicioGlobal;
-        this.idSede = idSede;
-        this.idConvocatoria = idConvocatoria;
-        this.idDepartamentoAcademico = idDepartamentoAcademico;
-        this.idPostulante = idPostulante; }
+        //this.idSede = idSede;
+        //this.idConvocatoria = idConvocatoria;
+        //this.idDepartamentoAcademico = idDepartamentoAcademico;
+        //this.idPostulante = idPostulante;
+        }
 
 
     public Integer getIdPostulacion() {
@@ -79,6 +82,7 @@ public class Postulacion {
     public String getJuicioGlobal() {
         return juicioGlobal;
     }
+    /*
     public Sede getIdSede() {
         return idSede;
     }
@@ -91,5 +95,6 @@ public class Postulacion {
     public Postulante getIdPostulante() {
         return idPostulante;
     }
+    */
 
 }
