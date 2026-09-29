@@ -25,6 +25,56 @@ El proyecto tiene como objetivo cumplir con lo solicitado en la Etapa 3 del caso
 | Mauricio Novo        | Base de Datos  |
 | Leonardo Capdesuner  | Programacion   |
 
+## Herramientas utilizadas
+Java 26
+
+Maven
+
+IntelliJ IDEA
+
+PostgreSQL 17
+
+Docker / Docker Compose
+
+Git / GitLab
+
+## Pasos para instalacion del proyecto
+
+1. Instalar:
+
+Java JDK 26
+
+Git
+
+Docker Desktop
+
+IntelliJ IDEA
+
+2. Clonar el repositorio, para esto abrimos la terminal y vamos a donde queremos guardar el proyecto:
+
+Por ejemplo: cd C:\Users\TuUsuario\Desktop
+
+Clonamos el repositorio: git clone https://git.utec.edu.uy/cristian.amaro/proyectodesarrollogrupo1melo 
+
+Entramos a la carpeta: cd ProyectoDesarrolloGrupo1Melo.
+
+3. Abrir IntelliJ, seleccionamos file, luego open y seleccionamos la carpeta ProyectoDesarrolloGrupo1Melo.
+
+4. Levantar Postgres, para esto desde la carpera ProyectoDesarollo... ejecutamos:
+
+docker compose up -d
+
+Y verificamos que el contenedor se este ejecuando con:
+
+docker ps
+
+Debaria mostrarnos:
+
+proyecto-postgres
+
+0.0.0.0:5433->5432/tcp
+
+5. Luego de esto ya podriamso trabajar en el proyecto
 
 ## Estructura del proyecto
 
