@@ -78,6 +78,28 @@ proyecto-postgres
 
 ## Estructura del proyecto
 
+src/main/java/
+│
+├── Datos/
+│   ├── Postulacion.java
+│   └── Postulante.java
+│
+├── DAO/
+│   ├── ExisteUsuario.java
+│   └── RolUsuario.java
+│
+├── Persistencia/
+│   └── Conexion.java
+│
+├── LogicaDeNegocio/
+│   └── IngresarUsuario.java
+│
+└── Presentacion/
+    └── Main.java
+
+database/
+└── init.sql
+
 
 
 # Anexo Bajar repositorio

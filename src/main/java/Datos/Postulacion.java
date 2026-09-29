@@ -1,3 +1,5 @@
+package Datos;
+
 import java.time.LocalDate;
 
 public class Postulacion {
@@ -16,7 +18,7 @@ public class Postulacion {
     //private Sede idSede;
     //private Convocatoria idConvocatoria;
     //private DepartamentoAcademico idDepartamentoAcademico;
-    //private Postulante idPostulante;
+    //private Datos.Postulante idPostulante;
 
     public Postulacion(){
 
@@ -25,7 +27,7 @@ public class Postulacion {
                        Integer cantidadMeses, String grupoInvestigacion, String otroGrupoInvestigacion, String observacionesCES,
                        Integer ordenPreCalculado, Integer puntajeConsolidado, Integer ordenFinalCES, String juicioGlobal) {
 
-                       //, Sede idSede, Convocatoria idConvocatoria, DepartamentoAcademico idDepartamentoAcademico, Postulante idPostulante
+                       //, Sede idSede, Convocatoria idConvocatoria, DepartamentoAcademico idDepartamentoAcademico, Datos.Postulante idPostulante
 
         this.idPostulacion = idPostulacion;
         this.nombreProyecto = nombreProyecto;
@@ -92,7 +94,7 @@ public class Postulacion {
     public DepartamentoAcademico getIdDepartamentoAcademico() {
         return idDepartamentoAcademico;
     }
-    public Postulante getIdPostulante() {
+    public Datos.Postulante getIdPostulante() {
         return idPostulante;
     }
     */
