@@ -3,16 +3,16 @@ package Datos;
 public class CriterioEvaluacion {
     private int idCriterio;
     private String nombreCriterio;
-    private int pesoPorcentaje;
+    private int idSeccion;
 
-    public CriterioEvaluacion(){
+    public CriterioEvaluacion() {
 
     }
 
-    public CriterioEvaluacion(int idCriterio, String nombreCriterio, int pesoPorcentaje) {
+    public CriterioEvaluacion(int idCriterio, String nombreCriterio, int idSeccion) {
         this.idCriterio = idCriterio;
         this.nombreCriterio = nombreCriterio;
-        this.pesoPorcentaje = pesoPorcentaje;
+        this.idSeccion = idSeccion;
     }
 
     public int getIdCriterio() {
@@ -31,11 +31,11 @@ public class CriterioEvaluacion {
         this.nombreCriterio = nombreCriterio;
     }
 
-    public int getPesoPorcentaje() {
-        return pesoPorcentaje;
+    public int getIdSeccion() {
+        return idSeccion;
     }
 
-    public void setPesoPorcentaje(int pesoPorcentaje) {
-        this.pesoPorcentaje = pesoPorcentaje;
+    public void setIdSeccion(int idSeccion) {
+        this.idSeccion = idSeccion;
     }
 }
