@@ -6,15 +6,29 @@ private String documento;
 private String nombre;
 private String apellido;
 private String correo;
-private String telefono;
-private int id_domicilio;
-private int id_institucion;
-private Integer id_formacion;
+private int idDomicilio;
+private int idTelefono;
+private int idInstitucion;
+private Integer idFormacion;
 private boolean esDocenteUtec;
 private boolean actLaboralFuera;
 
 public Postulante(){
 }
+
+    public Postulante(int idPostulante, String documento, String apellido, String nombre, String correo, int idDomicilio, int idTelefono, int idInstitucion, Integer idFormacion, boolean esDocenteUtec, boolean actLaboralFuera) {
+        this.idPostulante = idPostulante;
+        this.documento = documento;
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.idDomicilio = idDomicilio;
+        this.idTelefono = idTelefono;
+        this.idInstitucion = idInstitucion;
+        this.idFormacion = idFormacion;
+        this.esDocenteUtec = esDocenteUtec;
+        this.actLaboralFuera = actLaboralFuera;
+    }
 
     public int getIdPostulante() {
         return idPostulante;
@@ -56,36 +70,36 @@ public Postulante(){
         this.correo = correo;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public int getIdDomicilio() {
+        return idDomicilio;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setIdDomicilio(int idDomicilio) {
+        this.idDomicilio = idDomicilio;
     }
 
-    public int getId_domicilio() {
-        return id_domicilio;
+    public int getIdTelefono() {
+        return idTelefono;
     }
 
-    public void setId_domicilio(int id_domicilio) {
-        this.id_domicilio = id_domicilio;
+    public void setIdTelefono(int idTelefono) {
+        this.idTelefono = idTelefono;
     }
 
-    public Integer getId_formacion() {
-        return id_formacion;
+    public int getIdInstitucion() {
+        return idInstitucion;
     }
 
-    public void setId_formacion(Integer id_formacion) {
-        this.id_formacion = id_formacion;
+    public void setIdInstitucion(int idInstitucion) {
+        this.idInstitucion = idInstitucion;
     }
 
-    public int getId_institucion() {
-        return id_institucion;
+    public Integer getIdFormacion() {
+        return idFormacion;
     }
 
-    public void setId_institucion(int id_institucion) {
-        this.id_institucion = id_institucion;
+    public void setIdFormacion(Integer idFormacion) {
+        this.idFormacion = idFormacion;
     }
 
     public boolean isEsDocenteUtec() {
