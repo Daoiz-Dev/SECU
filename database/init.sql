@@ -235,23 +235,7 @@ CREATE TABLE tipo_convocatoria (
                                    tipo_convocatoria VARCHAR(100) UNIQUE NOT NULL);
 
 
--- ============================================================
--- AUDITORÍA DE CAMBIOS
--- ============================================================
--- Esta sección crea una única tabla central de auditoría.
--- Los triggers de todas las tablas de negocio escriben aquí.
---
--- La auditoría registra:
---   * qué tabla fue modificada
---   * qué operación se realizó (INSERT/UPDATE/DELETE)
---   * usuario de PostgreSQL que ejecutó la operación
---   * usuario de la aplicación, si Java lo informa
---   * fecha y hora
---   * datos anteriores (UPDATE/DELETE)
---   * datos nuevos (INSERT/UPDATE)
---
--- Se excluye "contraseña_hash" de los datos JSON para no almacenar
--- nuevamente información sensible en la auditoría.
+-- Auditoria cambios
 
 CREATE TABLE auditoria_cambios (
                                    id_auditoria SERIAL PRIMARY KEY,
@@ -264,8 +248,6 @@ CREATE TABLE auditoria_cambios (
 
                                    usuario_db VARCHAR(50) NOT NULL DEFAULT CURRENT_USER,
 
-    -- ID del usuario de la aplicación Java.
-    -- Puede quedar NULL hasta que la aplicación lo informe.
                                    id_usuario_app INTEGER,
 
                                    fecha_hora TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -276,18 +258,7 @@ CREATE TABLE auditoria_cambios (
 );
 
 
--- ============================================================
--- FUNCIÓN GENERAL DE AUDITORÍA
--- ============================================================
--- Esta función es reutilizada por todos los triggers.
---
--- TG_OP indica la operación:
---   INSERT -> solo existe NEW
---   UPDATE -> existen OLD y NEW
---   DELETE -> solo existe OLD
---
--- TG_TABLE_NAME indica automáticamente el nombre de la tabla
--- donde ocurrió el cambio.
+-- Funciones de auditoria
 
 CREATE OR REPLACE FUNCTION fn_auditar_cambios()
 RETURNS TRIGGER AS $$
@@ -295,18 +266,14 @@ DECLARE
 v_usuario_app INTEGER;
 BEGIN
 
-    -- La aplicación Java puede informar el usuario logueado
-    -- mediante la variable de sesión secu.id_usuario.
-    --
-    -- Si todavía no existe esa variable, se obtiene NULL
-    -- en lugar de producir un error.
+
+
     v_usuario_app :=
         NULLIF(current_setting('secu.id_usuario', true), '')::INTEGER;
 
 
-    -- ========================================================
-    -- INSERT
-    -- ========================================================
+    -- Insert
+
     IF TG_OP = 'INSERT' THEN
 
         INSERT INTO "PROYECTO".auditoria_cambios (
@@ -325,9 +292,8 @@ BEGIN
 RETURN NEW;
 
 
--- ========================================================
--- UPDATE
--- ========================================================
+-- Update
+
 ELSIF TG_OP = 'UPDATE' THEN
 
         INSERT INTO "PROYECTO".auditoria_cambios (
@@ -348,9 +314,8 @@ ELSIF TG_OP = 'UPDATE' THEN
 RETURN NEW;
 
 
--- ========================================================
--- DELETE
--- ========================================================
+-- Delete
+
 ELSIF TG_OP = 'DELETE' THEN
 
         INSERT INTO "PROYECTO".auditoria_cambios (
@@ -375,13 +340,7 @@ RETURN NULL;
 END;
 $$ LANGUAGE plpgsql;
 
-
--- ============================================================
--- TRIGGERS DE AUDITORÍA
--- ============================================================
--- Todas las tablas de negocio quedan cubiertas por la misma
--- función. No se crea trigger sobre Auditoria_Cambios porque
--- eso provocaría una recursión infinita.
+-- Triggers de auditoria
 
 
 CREATE TRIGGER trg_auditoria_paises
@@ -517,8 +476,3 @@ CREATE TRIGGER trg_auditoria_tipo_beca
 CREATE TRIGGER trg_auditoria_tipo_convocatoria
     AFTER INSERT OR UPDATE OR DELETE ON tipo_convocatoria
     FOR EACH ROW EXECUTE FUNCTION fn_auditar_cambios();
-
-
--- ============================================================
--- FIN DE LA AUDITORÍA
--- ============================================================
