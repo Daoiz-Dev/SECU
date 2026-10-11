@@ -75,7 +75,7 @@ public class Postulacion {
     public Integer getOrdenPreCalculado() {
         return ordenPreCalculado;
     }
-    public Integer getPuntajeConsolidado() {
+    public double getPuntajeConsolidado() {
         return puntajeConsolidado;
     }
     public Integer getOrdenFinalCES() {

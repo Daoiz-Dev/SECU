@@ -2,23 +2,32 @@ package Datos;
 
 public class Postulante {
 private int idPostulante;
-private String cedula;
+private String documento;
 private String nombre;
 private String apellido;
 private String correo;
-private String telefono;
+private int idDomicilio;
+private int idTelefono;
+private int idInstitucion;
+private Integer idFormacion;
+private boolean esDocenteUtec;
+private boolean actLaboralFuera;
 
 public Postulante(){
-
 }
 
-    public Postulante(int idPostulante, String cedula, String nombre, String apellido, String correo, String telefono) {
+    public Postulante(int idPostulante, String documento, String apellido, String nombre, String correo, int idDomicilio, int idTelefono, int idInstitucion, Integer idFormacion, boolean esDocenteUtec, boolean actLaboralFuera) {
         this.idPostulante = idPostulante;
-        this.cedula = cedula;
-        this.nombre = nombre;
+        this.documento = documento;
         this.apellido = apellido;
+        this.nombre = nombre;
         this.correo = correo;
-        this.telefono = telefono;
+        this.idDomicilio = idDomicilio;
+        this.idTelefono = idTelefono;
+        this.idInstitucion = idInstitucion;
+        this.idFormacion = idFormacion;
+        this.esDocenteUtec = esDocenteUtec;
+        this.actLaboralFuera = actLaboralFuera;
     }
 
     public int getIdPostulante() {
@@ -29,12 +38,12 @@ public Postulante(){
         this.idPostulante = idPostulante;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getDocumento() {
+        return documento;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
     public String getNombre() {
@@ -61,11 +70,54 @@ public Postulante(){
         this.correo = correo;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public int getIdDomicilio() {
+        return idDomicilio;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setIdDomicilio(int idDomicilio) {
+        this.idDomicilio = idDomicilio;
+    }
+
+    public int getIdTelefono() {
+        return idTelefono;
+    }
+
+    public void setIdTelefono(int idTelefono) {
+        this.idTelefono = idTelefono;
+    }
+
+    public int getIdInstitucion() {
+        return idInstitucion;
+    }
+
+    public void setIdInstitucion(int idInstitucion) {
+        this.idInstitucion = idInstitucion;
+    }
+
+    public Integer getIdFormacion() {
+        return idFormacion;
+    }
+
+    public void setIdFormacion(Integer idFormacion) {
+        this.idFormacion = idFormacion;
+    }
+
+    public boolean isEsDocenteUtec() {
+        return esDocenteUtec;
+    }
+
+    public void setEsDocenteUtec(boolean esDocenteUtec) {
+        this.esDocenteUtec = esDocenteUtec;
+    }
+
+    public boolean isActLaboralFuera() {
+        return actLaboralFuera;
+    }
+
+    public void setActLaboralFuera(boolean actLaboralFuera) {
+        this.actLaboralFuera = actLaboralFuera;
     }
 }
+
+
+
