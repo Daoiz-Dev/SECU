@@ -1,5 +1,6 @@
-package Persistencia;
+package DAO;
 import Datos.*;
+import Persistencia.ConexionBD;
 
 import java.sql.*;
 

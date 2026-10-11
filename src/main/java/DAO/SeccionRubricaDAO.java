@@ -1,6 +1,7 @@
-package Persistencia;
+package DAO;
 
 import Datos.SeccionRubrica;
+import Persistencia.ConexionBD;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

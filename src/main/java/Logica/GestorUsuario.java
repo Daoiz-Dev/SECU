@@ -1,7 +1,7 @@
 package Logica;
 
 import Datos.*;
-import Persistencia.UsuarioDAO;
+import DAO.UsuarioDAO;
 
 public class GestorUsuario {
 

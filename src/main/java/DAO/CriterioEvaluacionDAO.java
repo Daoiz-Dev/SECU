@@ -1,6 +1,7 @@
-package Persistencia;
+package DAO;
 
 import Datos.CriterioEvaluacion;
+import Persistencia.ConexionBD;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
