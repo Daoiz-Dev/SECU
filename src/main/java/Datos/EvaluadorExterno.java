@@ -17,5 +17,4 @@ public class EvaluadorExterno extends Usuario {
                             String correo, String contrasenia, Boolean estado) {
         super(idUsuario, cedula, nombre, apellido, correo, contrasenia, estado);
     }
-
 }
