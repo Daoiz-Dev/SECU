@@ -12,7 +12,7 @@ public class Postulacion {
     private String otroGrupoInvestigacion;
     private String observacionesCES;
     private Integer ordenPreCalculado;
-    private Integer puntajeConsolidado;
+    private double puntajeConsolidado;
     private Integer ordenFinalCES;
     private String juicioGlobal;
     //private Sede idSede;
@@ -75,7 +75,7 @@ public class Postulacion {
     public Integer getOrdenPreCalculado() {
         return ordenPreCalculado;
     }
-    public Integer getPuntajeConsolidado() {
+    public double getPuntajeConsolidado() {
         return puntajeConsolidado;
     }
     public Integer getOrdenFinalCES() {
@@ -99,4 +99,51 @@ public class Postulacion {
     }
     */
 
+    public void setIdPostulacion(Integer idPostulacion) {
+        this.idPostulacion = idPostulacion;
+    }
+
+    public void setNombreProyecto(String nombreProyecto) {
+        this.nombreProyecto = nombreProyecto;
+    }
+
+    public void setLineaInvestigacion(String lineaInvestigacion) {
+        this.lineaInvestigacion = lineaInvestigacion;
+    }
+
+    public void setFechaSolicitud(LocalDate fechaSolicitud) {
+        this.fechaSolicitud = fechaSolicitud;
+    }
+
+    public void setCantidadMeses(Integer cantidadMeses) {
+        this.cantidadMeses = cantidadMeses;
+    }
+
+    public void setGrupoInvestigacion(String grupoInvestigacion) {
+        this.grupoInvestigacion = grupoInvestigacion;
+    }
+
+    public void setOtroGrupoInvestigacion(String otroGrupoInvestigacion) {
+        this.otroGrupoInvestigacion = otroGrupoInvestigacion;
+    }
+
+    public void setObservacionesCES(String observacionesCES) {
+        this.observacionesCES = observacionesCES;
+    }
+
+    public void setOrdenPreCalculado(Integer ordenPreCalculado) {
+        this.ordenPreCalculado = ordenPreCalculado;
+    }
+
+    public void setPuntajeConsolidado(Integer puntajeConsolidado) {
+        this.puntajeConsolidado = puntajeConsolidado;
+    }
+
+    public void setOrdenFinalCES(Integer ordenFinalCES) {
+        this.ordenFinalCES = ordenFinalCES;
+    }
+
+    public void setJuicioGlobal(String juicioGlobal) {
+        this.juicioGlobal = juicioGlobal;
+    }
 }
