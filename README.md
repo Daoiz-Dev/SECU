@@ -12,7 +12,6 @@ El proyecto tiene como objetivo cumplir con lo solicitado en la Etapa 3 del caso
 |       Nombre y Apellido       | Cédula de Identidad   | Rol en el Equipo                           |
 | ----------------------------- | --------------------- |--------------------------------------------|
 | Cristian Amaro                | 5.650.820-2           | Evaluador                                  |
-| Luciana Chaves                | 5.420.245-4           | Portavoz y Gestora de tiempos              |
 | Camila Pacheco                | 5.062.361-8           | Secretaria y Coordinadora de Base de Datos |
 | Juan Ignacio Coronel Pintos   | 5.126.941-3           | Responsanle de testeo                      |
 | Mathías Daóiz Pérez Recuero   | 5.407.349-9           | Responsable de Repositorio                 |
@@ -23,10 +22,10 @@ El proyecto tiene como objetivo cumplir con lo solicitado en la Etapa 3 del caso
 | -------------------- | -------------- |
 | Flavia Amaral        | Proyecto       |
 | Mauricio Novo        | Base de Datos  |
-| Leonardo Capdesuner  | Programacion   |
+| Juan Maccio          | Programacion   |
 
 ## Herramientas utilizadas
-Java 26
+Java 25
 
 Maven
 
@@ -42,7 +41,7 @@ Git / GitLab
 
 1. Instalar:
 
-Java JDK 26
+Java JDK 25
 
 Git
 
