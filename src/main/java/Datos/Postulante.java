@@ -1,33 +1,41 @@
 package Datos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Postulante {
-private int idPostulante;
-private String documento;
-private String nombre;
-private String apellido;
-private String correo;
-private int idDomicilio;
-private int idTelefono;
-private int idInstitucion;
-private Integer idFormacion;
-private boolean esDocenteUtec;
-private boolean actLaboralFuera;
+    private int idPostulante;
+    private String documento;
+    private String nombre;
+    private String apellido;
+    private String correo;
+    private int idDomicilio;
+    private int idInstitucion;
+    private Integer idFormacion;
+    private boolean esDocenteUtec;
+    private boolean actLaboralFuera;
 
-public Postulante(){
-}
+    // Representación en Objetos de la tabla POSTULANTE_CELULARES (1:N)
+    private List<String> celulares;
 
-    public Postulante(int idPostulante, String documento, String apellido, String nombre, String correo, int idDomicilio, int idTelefono, int idInstitucion, Integer idFormacion, boolean esDocenteUtec, boolean actLaboralFuera) {
+    public Postulante() {
+        this.celulares = new ArrayList<>();
+    }
+
+    public Postulante(int idPostulante, String documento, String nombre, String apellido,
+                      String correo, int idDomicilio, int idInstitucion,
+                      Integer idFormacion, boolean esDocenteUtec, boolean actLaboralFuera) {
         this.idPostulante = idPostulante;
         this.documento = documento;
-        this.apellido = apellido;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.correo = correo;
         this.idDomicilio = idDomicilio;
-        this.idTelefono = idTelefono;
         this.idInstitucion = idInstitucion;
         this.idFormacion = idFormacion;
         this.esDocenteUtec = esDocenteUtec;
         this.actLaboralFuera = actLaboralFuera;
+        this.celulares = new ArrayList<>();
     }
 
     public int getIdPostulante() {
@@ -78,14 +86,6 @@ public Postulante(){
         this.idDomicilio = idDomicilio;
     }
 
-    public int getIdTelefono() {
-        return idTelefono;
-    }
-
-    public void setIdTelefono(int idTelefono) {
-        this.idTelefono = idTelefono;
-    }
-
     public int getIdInstitucion() {
         return idInstitucion;
     }
@@ -117,7 +117,19 @@ public Postulante(){
     public void setActLaboralFuera(boolean actLaboralFuera) {
         this.actLaboralFuera = actLaboralFuera;
     }
+
+    public List<String> getCelulares() {
+        return celulares;
+    }
+
+    public void setCelulares(List<String> celulares) {
+        this.celulares = celulares;
+    }
+
+    public void agregarCelular(String celular) {
+        if (this.celulares == null) {
+            this.celulares = new ArrayList<>();
+        }
+        this.celulares.add(celular);
+    }
 }
-
-
-
