@@ -23,10 +23,10 @@ El proyecto tiene como objetivo cumplir con lo solicitado en la Etapa 3 del caso
 | -------------------- | -------------- |
 | Flavia Amaral        | Proyecto       |
 | Mauricio Novo        | Base de Datos  |
-| Leonardo Capdesuner  | Programacion   |
+|  Juan Maccio         | Programacion   |
 
 ## Herramientas utilizadas
-Java 26
+Java 25
 
 Maven
 
