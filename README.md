@@ -41,7 +41,7 @@ Git / GitLab
 
 1. Instalar:
 
-Java JDK 26
+Java JDK 25
 
 Git
 
