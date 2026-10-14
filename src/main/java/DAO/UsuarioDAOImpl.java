@@ -4,6 +4,8 @@ import Datos.*;
 import Persistencia.ConexionBD;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 
@@ -49,7 +51,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 }
             }
 
-            // 3. Insertar en la tabla especifica según el rol
+            // 3. Insertar en la tabla específica según el rol
             if (tipoRol.equalsIgnoreCase("ADMINISTRADOR")) {
                 String sqlAdmin = "INSERT INTO \"PROYECTO\".Administradores (id_usuario, id_rol) VALUES (?, ?)";
                 try (PreparedStatement pstAdmin = con.prepareStatement(sqlAdmin)) {
@@ -66,13 +68,26 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 }
             }
 
+            // 4. Insertar la lista de teléfonos si contiene elementos
+            if (usuario.getTelefonos() != null && !usuario.getTelefonos().isEmpty()) {
+                String sqlTel = "INSERT INTO \"PROYECTO\".Usuario_Telefonos (id_usuario, num_telefono) VALUES (?, ?)";
+                try (PreparedStatement pstTel = con.prepareStatement(sqlTel)) {
+                    for (String tel : usuario.getTelefonos()) {
+                        pstTel.setInt(1, idGenerado);
+                        pstTel.setString(2, tel);
+                        pstTel.addBatch();
+                    }
+                    pstTel.executeBatch();
+                }
+            }
+
             con.commit(); // Confirmar transacción
             return true;
 
         } catch (SQLException e) {
             if (con != null) {
                 try {
-                    con.rollback(); // Deshacer cambios en caso de error
+                    con.rollback(); // Deshacer cambios si ocurre un fallo
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -82,7 +97,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         } finally {
             if (con != null) {
                 try {
-                    con.setAutoCommit(true); // Restablecer autoCommit
+                    con.setAutoCommit(true); // Restablecer el estado de autoCommit
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -105,7 +120,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             pst.setString(1, cedula);
             try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) {
-                    return UsuarioFactory.crearUsuario(
+                    Usuario usuario = UsuarioFactory.crearUsuario(
                             rs.getString("nombre_rol"),
                             rs.getInt("id_usuario"),
                             rs.getString("ci"),
@@ -115,6 +130,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                             rs.getString("contrasenia_hash"),
                             rs.getBoolean("estado_usuario")
                     );
+
+                    if (usuario != null) {
+                        usuario.setTelefonos(obtenerTelefonosPorUsuario(usuario.getIdUsuario()));
+                    }
+                    return usuario;
                 }
             }
         } catch (SQLException e) {
@@ -153,5 +173,40 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             System.err.println("Error al actualizar contraseña: " + e.getMessage());
             return false;
         }
+    }
+
+    @Override
+    public boolean guardarTelefono(int idUsuario, String numTelefono) {
+        String sql = "INSERT INTO \"PROYECTO\".Usuario_Telefonos (id_usuario, num_telefono) VALUES (?, ?)";
+        try (Connection con = ConexionBD.getInstancia().getConexion();
+             PreparedStatement pst = con.prepareStatement(sql)) {
+
+            pst.setInt(1, idUsuario);
+            pst.setString(2, numTelefono);
+            return pst.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Error al guardar teléfono del usuario: " + e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public List<String> obtenerTelefonosPorUsuario(int idUsuario) {
+        List<String> telefonos = new ArrayList<>();
+        String sql = "SELECT num_telefono FROM \"PROYECTO\".Usuario_Telefonos WHERE id_usuario = ?";
+        try (Connection con = ConexionBD.getInstancia().getConexion();
+             PreparedStatement pst = con.prepareStatement(sql)) {
+
+            pst.setInt(1, idUsuario);
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs.next()) {
+                    telefonos.add(rs.getString("num_telefono"));
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener teléfonos del usuario: " + e.getMessage());
+        }
+        return telefonos;
     }
 }
