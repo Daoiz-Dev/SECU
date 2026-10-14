@@ -18,11 +18,11 @@ El proyecto tiene como objetivo cumplir con lo solicitado en la Etapa 3 del caso
 
 ## Tutores
 
-|   Nombre y Apellido  | Área           |
-| -------------------- | -------------- |
-| Flavia Amaral        | Proyecto       |
-| Mauricio Novo        | Base de Datos  |
-| Juan Maccio          | Programacion   |
+|   Nombre y Apellido  | Área                     |
+| -------------------- | -------------------------|
+| Flavia Amaral        | Proyecto + Testing       |
+| Mauricio Novo        | Base de Datos            |
+|  Juan Maccio         | Programacion             |
 
 ## Herramientas utilizadas
 Java 25
